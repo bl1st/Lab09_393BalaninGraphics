@@ -21,6 +21,25 @@
             android:gravity="center_horizontal"
             android:onClick="onButtonChangeField_Click"
             android:text="@string/button_changefield" />
+
+        <Button
+            android:id="@+id/btn_scalarPlus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:onClick="onButtonScalarPus_Click"
+            android:text="@string/scalarPlus" />
+
+        <Button
+            android:id="@+id/btn_scalarMinus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:onClick="onButtonScalarMinus_Click"
+            android:text="@string/scalarMinus" />
+
     </LinearLayout>
 
     <com.example.lab09_393balanin_graphics.MySurface

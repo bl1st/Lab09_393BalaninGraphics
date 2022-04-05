@@ -2,4 +2,9 @@
     <string name="app_name">Lab09_393Balanin_Graphics</string>
     <string name="setfunc">Set function</string>
     <string name="button_changefield">change</string>
+
+
+    <string name="scalarPlus">+</string>
+    <string name="scalarMinus">-</string>
+
 </resources>

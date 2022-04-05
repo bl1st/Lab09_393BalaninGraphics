@@ -109,4 +109,22 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(i, 555); //Start acitivty and send empty intent
     }
 
+    public void onButtonScalarPus_Click(View v) //ReDraw Function With Changed Scale
+    {
+            s.xmin /= 2;
+            s.xmax /= 2;
+            s.n /= 2;
+            startDraw();
+    }
+
+    public void onButtonScalarMinus_Click(View v) //ReDraw Function With Changed Scale
+    {
+        s.xmin *=2;
+        s.xmax *=2;
+        //
+        s.n*=2;
+        startDraw();
+    }
+
+
 }
