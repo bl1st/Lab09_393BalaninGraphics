@@ -82,5 +82,13 @@
             android:layout_weight="1"
             android:onClick="onButtonCompute_Click"
             android:text="Compute" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onButtonSetFunction_Click"
+            android:text="@string/setfunc" />
     </LinearLayout>
 </LinearLayout>

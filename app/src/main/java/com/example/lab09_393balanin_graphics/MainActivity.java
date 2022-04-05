@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0 ; i < s.n; i ++) //generate samples
                 {
                     //while i ranges from 0 to s.n -1 ==> x ranges from 0 to 4 * pi
-                    s.x[i] = interp.map(i,s.xmin,s.n-1,0.0f,(float) s.xmax);
+                    s.x[i] = interp.map(i,(float)0,s.n-1,s.xmin, s.xmax);
                     s.y[i] = (float) Math.cos(s.x[i]);
                 }
                 break;
@@ -61,40 +61,40 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0 ; i < s.n; i ++) //generate samples
                 {
                     //while i ranges from 0 to s.n -1 ==> x ranges from 0 to 4 * pi
-                    s.x[i] = interp.map(i,s.xmin,s.n-1,0.0f,(float) s.xmax);
+                    s.x[i] = interp.map(i,(float)0,s.n-1,s.xmin, s.xmax);
                     s.y[i] = (float) Math.tan(s.x[i]);
                 }
                 break;
-            case 3:  //y= |x|
+            case 3:  //y= asin(x)
                 for (int i = 0 ; i < s.n; i ++) //generate samples
                 {
                     //while i ranges from 0 to s.n -1 ==> x ranges from 0 to 4 * pi
-                    s.x[i] = interp.map(i,s.xmin,s.n-1,0.0f,(float) s.xmax);
-                    s.y[i] = (float) Math.abs(s.x[i]);
+                    s.x[i] = interp.map(i,(float)0,s.n-1,s.xmin, s.xmax);
+                    s.y[i] = (float) Math.asin(s.x[i]);
                 }
                 break;
-            case 4:  //y=ln(x) y = log(e) x
+            case 4:  //y= = acos(x)
                 for (int i = 0 ; i < s.n; i ++) //generate samples
                 {
                     //while i ranges from 0 to s.n -1 ==> x ranges from 0 to 4 * pi
-                    s.x[i] = interp.map(i,s.xmin,s.n-1,0.0f,(float) s.xmax);
-                    s.y[i] = (float) Math.log(s.x[i]);
+                    s.x[i] = interp.map(i,(float)0,s.n-1,s.xmin, s.xmax);
+                    s.y[i] = (float) Math.acos(s.x[i]);
                 }
                 break;
             case 5: // y = Math.Pow(x,2)
                 for (int i = 0 ; i < s.n; i ++) //generate samples
                 {
                     //while i ranges from 0 to s.n -1 ==> x ranges from 0 to 4 * pi
-                    s.x[i] = interp.map(i,s.xmin,s.n-1,0.0f,(float) s.xmax);
+                    s.x[i] = interp.map(i,(float)0,s.n-1,s.xmin, s.xmax);
                     s.y[i] = (float) Math.pow(s.x[i],2);
                 }
                 break;
-            case 6: //y = Math.Sqrt(1-Math.Pow(x,2) CIRCLE maybe this one wont work
+            case 6: // y = Math.Sqrt(x)
                 for (int i = 0 ; i < s.n; i ++) //generate samples
                 {
                     //while i ranges from 0 to s.n -1 ==> x ranges from 0 to 4 * pi
-                    s.x[i] = interp.map(i,s.xmin,s.n-1,0.0f,(float) s.xmax);
-                    s.y[i] = (float) Math.sqrt(1-Math.pow(s.x[i],2));
+                    s.x[i] = interp.map(i,(float)0,s.n-1,s.xmin, s.xmax);
+                    s.y[i] = (float) Math.sqrt(s.x[i]);
                 }
                 break;
             default: return;

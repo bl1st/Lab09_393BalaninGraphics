@@ -41,42 +41,6 @@ public class ActivityAnother extends AppCompatActivity {
         text_xmin = findViewById(R.id.txt_xmin);
         text_xmax = findViewById(R.id.txt_xmax);
         i = getIntent();
-        String[] s = {"y=cos(x)","y = tan(x)", "y = |x|","y =log e (x)","y = Math.Pow(x,2)","y = Math.Sqrt(1-Math.Pow(x,2) (CIRCLE)"};
-        ArrayAdapter<String> adp = new ArrayAdapter<String>(ActivityAnother.this,
-                android.R.layout.simple_spinner_item, s);
-
-        Spinner sp = new Spinner(ActivityAnother.this);
-        sp.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        sp.setAdapter(adp);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAnother.this);
-
-        builder.setView(sp);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-            alert.cancel();
-            }
-        });
-        alert = builder.create();
-
-        alert.show();
-        sp.setSelection(0);
-        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                int a = position+1;
-                i.putExtra("function_id", a); //put chosen function to intent
-
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                i.putExtra("function_id", 1); //Default fucntion if nothing was chosen
-
-            }
-        });
-
-
-
 
     }
 
@@ -91,6 +55,27 @@ public class ActivityAnother extends AppCompatActivity {
 
         setResult(RESULT_OK, i);
         finish();
+    }
+
+
+    public void onButtonSetFunction_Click(View v)
+    {
+        String[] s = {"y=cos(x)","y = tan(x)", "y = asin(x)","y =acos(x)","y = Math.Pow(x,2)","y = Math.Sqrt(x)"}; //Massive with functions
+        ArrayAdapter<String> adp = new ArrayAdapter<String>(ActivityAnother.this,
+                android.R.layout.simple_spinner_item, s);
+        ListView lst = new ListView(ActivityAnother.this);
+        lst.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        lst.setAdapter(adp);
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAnother.this);
+        builder.setView(lst);
+        alert = builder.create();
+        alert.show();
+        lst.setOnItemClickListener((parent, view, position, id) -> {
+            int a = position+1; //Функция в рассчете выбирается по этому числу (MainActivity.startDraw())
+            i.putExtra("function_id", a);
+            alert.cancel();
+
+        });
     }
 
 
